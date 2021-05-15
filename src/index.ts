@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command } from 'commander'
 import { join, basename, dirname } from 'path'
 import { createFiles } from './createFiles'
