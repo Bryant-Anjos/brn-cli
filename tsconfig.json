@@ -14,7 +14,7 @@
     // "declarationMap": true,
     // "sourceMap": true,
     // "outFile": "./",
-    // "outDir": "./",
+    "outDir": "./dist",
     // "rootDir": "./",
     // "composite": true,
     // "tsBuildInfoFile": "./",
@@ -53,6 +53,7 @@
     "esModuleInterop": true,
     // "preserveSymlinks": true,
     // "allowUmdGlobalAccess": true,
+    "resolveJsonModule": true,
 
     /* Source Map Options */
     // "sourceRoot": "",

@@ -7,4 +7,5 @@ const ${name}: React.FC = () => {
   return <View />
 }
 
-export default ${name}`
+export default ${name}
+`

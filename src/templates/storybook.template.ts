@@ -1,5 +1,5 @@
 export const storybook = (name: string) => `import React from 'react'
-import { View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import { Meta, Story } from '@storybook/react'
 
@@ -10,8 +10,16 @@ export default {
   component: ${name},
 } as Meta
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+})
+
 const Template: Story<React.ComponentProps<typeof ${name}>> = args => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+  <View style={styles.container}>
     <${name} {...args} />
   </View>
 )
