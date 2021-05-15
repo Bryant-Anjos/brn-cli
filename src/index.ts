@@ -1,7 +1,5 @@
-#!/usr/bin/env node
-
 import { Command } from 'commander'
-import { join, basename, dirname } from 'path'
+import { join, basename } from 'path'
 import { createFiles } from './createFiles'
 
 import { version } from '../package.json'
@@ -16,7 +14,7 @@ program
   .description('generate the react native files')
   .action((name: string) => {
     const path = join(process.cwd(), 'src', name)
-    createFiles(dirname(path), basename(name))
+    createFiles(path, basename(name))
   })
 
 program.parse(process.argv)
