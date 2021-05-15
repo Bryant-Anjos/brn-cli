@@ -5,6 +5,7 @@
   },
   "extends": [
     "airbnb-base",
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
@@ -13,7 +14,7 @@
     "sourceType": "module"
   },
   "plugins": [
-    "@typescript-eslint/recommended",
+    "@typescript-eslint",
     "prettier"
   ],
   "rules": {
@@ -21,6 +22,8 @@
     "@typescript-eslint/no-use-before-define": [
       "error"
     ],
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
