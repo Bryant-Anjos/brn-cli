@@ -3,7 +3,6 @@ const webpack = require('webpack')
 module.exports = {
   mode: 'production',
   target: 'node',
-  devtool: 'inline-source-map',
   entry: './src/index.ts',
   output: {
     filename: './bin.js',
