@@ -1,12 +1,11 @@
 {
-  "name": "bryant-cli",
-  "version": "0.1.0",
+  "name": "brn-cli",
+  "version": "0.0.1",
   "description": "Cli to generate react native files",
   "scripts": {
     "build": "webpack",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "publish": "npm publish",
-    "prepare": "husky install",
     "start": "ts-node src/index.ts"
   },
   "author": "Bryant Moreira dos Anjos",
@@ -38,7 +37,7 @@
     "webpack-cli": "^4.7.0"
   },
   "bin": {
-    "br": "./dist/bin.js"
+    "brn": "./dist/bin.js"
   },
   "lint-staged": {
     "src/**/*.{ts,tsx}": [
