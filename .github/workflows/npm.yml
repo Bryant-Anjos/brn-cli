@@ -1,0 +1,37 @@
+name: NPM Publish
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    name: Publishing to NPM
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PROJECT_NAME: brn cli
+
+      - name: install dependencies
+        run: yarn install
+
+      - name: publish to npm
+        run: npm publish
+
+      - name: Send tweet
+        run: echo "TWEET_TEXT=A new version of $PROJECT_NAME was released - $GITHUB_REF #reactnative #typescript #javascript #developer $GITHUB_SERVER_URL/$GITHUB_REPOSITORY" >> $GITHUB_ENV
+      - uses: ethomson/send-tweet-action@v1.0.0
+        with:
+          status: ${{ env.TWEET_TEXT }}
+          consumer-key: ${{ secrets.TWITTER_CONSUMER_API_KEY }}
+          consumer-secret: ${{ secrets.TWITTER_CONSUMER_API_SECRET }}
+          access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
