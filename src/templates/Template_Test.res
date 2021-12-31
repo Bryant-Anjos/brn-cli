@@ -1,4 +1,5 @@
-export const test = (name: string) => `import 'react-native'
+let make = name =>
+  `import 'react-native'
 import React from 'react'
 import ${name} from './index'
 

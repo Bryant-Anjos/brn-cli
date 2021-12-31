@@ -1,4 +1,5 @@
-export const component = (name: string) => `import React from 'react'
+let make = name =>
+  `import React from 'react'
 import { View } from 'react-native'
 
 import { Container } from './styles'

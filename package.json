@@ -1,18 +1,21 @@
 {
   "name": "brn-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Cli to generate react native files",
   "bin": {
     "brn": "./dist/bin.js"
   },
   "scripts": {
+    "prebuild": "npm run re:build",
     "build": "webpack",
-    "format": "prettier --write ./src/**/*.{ts,tsx}",
-    "lint": "eslint --fix ./src/**/*.{ts,tsx}",
+    "postbuild": "npm run re:clean",
     "prepare": "husky install",
     "prepublish": "npm run build",
     "publish": "npm publish",
-    "start": "ts-node src/index.ts"
+    "start": "src/Index.bs.js",
+    "re:build": "rescript",
+    "re:clean": "rescript clean",
+    "re:start": "rescript build -w"
   },
   "author": "Bryant Moreira dos Anjos",
   "license": "MIT",
@@ -31,31 +34,16 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "@types/node": "^15.3.0",
-    "@typescript-eslint/eslint-plugin": "^4.23.0",
-    "@typescript-eslint/parser": "^4.23.0",
     "commander": "^7.2.0",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "^7.26.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-import-resolver-typescript": "^2.4.0",
-    "eslint-plugin-import": "^2.23.0",
-    "eslint-plugin-prettier": "^3.4.0",
     "husky": "^6.0.0",
     "lint-staged": ">=10",
-    "prettier": "^2.3.0",
-    "ts-loader": "^9.1.2",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.4",
+    "rescript": "^9.1.4",
+    "rescript-nodejs": "^14.2.0",
     "webpack": "^5.37.0",
     "webpack-cli": "^4.7.0"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
-      "prettier --write",
-      "yarn eslint --fix"
-    ]
   },
   "config": {
     "commitizen": {

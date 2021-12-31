@@ -1,4 +1,5 @@
-export const storybook = (name: string) => `import React from 'react'
+let make = name =>
+  `import React from 'react'
 import { StyleSheet, View } from 'react-native'
 
 import { Meta, Story } from '@storybook/react'

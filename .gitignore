@@ -117,3 +117,9 @@ dist
 
 # npm
 package-lock.json
+
+# rescript
+*.bs.js
+.bsb.lock
+.merlin
+lib/bs

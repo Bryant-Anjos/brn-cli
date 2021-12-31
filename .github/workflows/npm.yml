@@ -14,8 +14,8 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
 
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -28,7 +28,7 @@ jobs:
         run: npm publish
 
       - name: Send tweet
-        run: echo "TWEET_TEXT=A new version of $PROJECT_NAME was released - $GITHUB_REF #reactnative #typescript #javascript #developer $GITHUB_SERVER_URL/$GITHUB_REPOSITORY" >> $GITHUB_ENV
+        run: echo "TWEET_TEXT=A new version of $PROJECT_NAME was released - $GITHUB_REF #reactnative #rescript #javascript #developer $GITHUB_SERVER_URL/$GITHUB_REPOSITORY" >> $GITHUB_ENV
       - uses: ethomson/send-tweet-action@v1.0.0
         with:
           status: ${{ env.TWEET_TEXT }}
